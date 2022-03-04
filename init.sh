@@ -168,6 +168,8 @@ alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
 alias lxd='sudo lxd'
 alias lxc='sudo lxc'
+alias nginx-log='cat /var/log/nginx/access.log'
+alias fail2ban-log='cat /var/log/fail2ban.log'
 EOF
 
 source $HOME/.bashrc
@@ -236,6 +238,8 @@ echo -e "\t${GREEN}$ ipt6${NC} : sudo ip6tables"
 echo -e "\t${GREEN}$ d${NC} : docker"
 echo -e "\t${GREEN}$ lxd${NC} : sudo lxd"
 echo -e "\t${GREEN}$ lxc${NC} : sudo lxc"
+echo -e "\t${GREEN}$ nginx-log${NC} : cat /var/log/nginx/access.log"
+echo -e "\t${GREEN}$ fail2ban-log${NC} : cat /var/log/fail2ban.log"
 
 echo
 echo -e "${BG_GREEN} NEW COMMAND ${NC}"
