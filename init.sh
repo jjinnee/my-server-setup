@@ -163,7 +163,7 @@ echo -e "${BG_GREEN} Adding alias... ${NC}"
 
 cat << EOF | tee -a $HOME/.bashrc
 
-alias d='docker'
+alias d='sudo docker'
 alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
 alias lxd='sudo lxd'
