@@ -168,7 +168,6 @@ alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
 alias lxd='sudo lxd'
 alias lxc='sudo lxc'
-alias n='nginx'
 alias nlog='cat /var/log/nginx/access.log'
 EOF
 
@@ -238,7 +237,6 @@ echo -e "\t${GREEN}$ ipt${NC} : sudo iptables"
 echo -e "\t${GREEN}$ ipt6${NC} : sudo ip6tables"
 echo -e "\t${GREEN}$ lxd${NC} : sudo lxd"
 echo -e "\t${GREEN}$ lxc${NC} : sudo lxc"
-echo -e "\t${GREEN}$ n${NC} : nginx"
 echo -e "\t${GREEN}$ nlog${NC} : cat /var/log/nginx/access.log"
 
 echo
