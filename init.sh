@@ -169,6 +169,7 @@ alias ipt6='sudo ip6tables'
 alias lxd='sudo lxd'
 alias lxc='sudo lxc'
 alias nlog='cat /var/log/nginx/access.log'
+alias nelog='cat /var/log/nginx/error.log'
 EOF
 
 source $HOME/.bashrc
@@ -238,6 +239,7 @@ echo -e "\t${GREEN}$ ipt6${NC} : sudo ip6tables"
 echo -e "\t${GREEN}$ lxd${NC} : sudo lxd"
 echo -e "\t${GREEN}$ lxc${NC} : sudo lxc"
 echo -e "\t${GREEN}$ nlog${NC} : cat /var/log/nginx/access.log"
+echo -e "\t${GREEN}$ nelog${NC} : cat /var/log/nginx/error.log"
 
 echo
 echo -e "${BG_GREEN} NEW COMMAND ${NC}"
