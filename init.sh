@@ -163,6 +163,7 @@ echo -e "${BG_GREEN} Adding alias... ${NC}"
 
 cat << EOF | tee -a $HOME/.bashrc
 
+alias update='sudo apt update && sudo apt dist-upgrade -y'
 alias d='sudo docker'
 alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
@@ -233,6 +234,7 @@ echo
 echo -e "${BG_GREEN} ADDED THINGS ${NC}"
 echo -e "- Added cron jobs : ${GREEN}Reboot${NC}"
 echo -e "- Added shortcuts"
+echo -e "\t${GREEN}$ update${NC} : sudo apt update && sudo apt dist-upgrade -y"
 echo -e "\t${GREEN}$ d${NC} : sudo docker"
 echo -e "\t${GREEN}$ ipt${NC} : sudo iptables"
 echo -e "\t${GREEN}$ ipt6${NC} : sudo ip6tables"
