@@ -80,6 +80,24 @@ set tabsize 4
 EOF
 
 #----------------------
+# install logrotate
+#----------------------
+echo
+echo -e "${BG_GREEN} Installing logrotate... ${NC}"
+sudo apt install logrotate -y || printError "Failed to install logrotate"
+
+printSuccess "logrotate is installed"
+
+#----------------------
+# install net-tools
+#----------------------
+echo
+echo -e "${BG_GREEN} Installing net-tools... ${NC}"
+sudo apt install net-tools -y || printError "Failed to install net-tools"
+
+printSuccess "net-tools is installed"
+
+#----------------------
 # initialize firewall
 #----------------------
 echo
