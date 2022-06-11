@@ -266,6 +266,8 @@ echo
 echo -e "${BG_GREEN} NEW COMMAND ${NC}"
 echo -e "- clean up unused files"
 echo -e "\t${GREEN}$ opt${NC}"
+echo -e "- Auto package update"
+echo -e "\t${GREEN}$ update${NC}"
 
 echo
 
