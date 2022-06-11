@@ -183,6 +183,7 @@ cat << EOF | tee -a $HOME/.bashrc
 
 alias update='sudo apt list --upgradable && echo "------------------------------------" && sudo apt update && sudo apt dist-upgrade -y'
 alias d='sudo docker'
+alias s='sudo'
 alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
 alias lxd='sudo lxd'
