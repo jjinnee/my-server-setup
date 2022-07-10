@@ -10,4 +10,4 @@
 
 ### Useful-tools
 
-    curl -s -o /usr/local/bin/tools https://raw.githubusercontent.com/jjinnee/my-server-setup/main/init.sh && chmod +x /usr/local/bin/tools
+    curl -s -o /usr/local/bin/tools https://raw.githubusercontent.com/jjinnee/my-server-setup/main/useful-tools.sh && chmod +x /usr/local/bin/tools
