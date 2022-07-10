@@ -46,6 +46,7 @@ printSuccess() {
 echo
 echo -e "${BG_GREEN} Select number ${NC}"
 echo -e "\t 1) swap memory"
+echo -e "\t 2) openssl private certificate"
 
 read -p "> Answer [Default : exit] : " answer
 
@@ -111,4 +112,29 @@ EOF
                 echo
                 sudo service cron reload
         fi
+fi
+
+### 2 - openssl private certificate
+
+if [[ $answer == 2 ]]; then
+        echo
+        echo -e "${BG_CYAN} What directory name do you want to make? ${NC}"
+        read -p "> Answer [Default : exit] : " dirName
+
+        [ -z $dirName ] && exit
+
+        echo
+        mkdir $dirName || printError "Can't make directory"
+
+        echo
+        cd $dirName
+        openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -out certificate.crt
+
+        echo
+        echo -e "${BG_CYAN} Do you want to create dhparam? ${NC}"
+        read -p "> Answer (2048/4096) [Default : exit] : " dhparam
+
+        [ -z $dhparam ] && exit
+
+        [[ $dhparam =~ 2048|4096 ]] && echo "$(openssl dhparam $dhparam)" > dhparam.pem
 fi
