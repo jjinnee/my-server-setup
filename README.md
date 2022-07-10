@@ -11,4 +11,5 @@
 ### Useful-tools
 
     sudo curl -s -o /usr/local/bin/tools https://raw.githubusercontent.com/jjinnee/my-server-setup/main/useful-tools.sh && sudo chmod +x /usr/local/bin/tools
-    $ tools
+
+$ tools
