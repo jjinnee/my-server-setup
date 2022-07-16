@@ -155,7 +155,7 @@ if [[ $answer == 2 ]]; then
             echo
             exit
         elif [[ $wantToUmount == n ]]; then
-            printError "You already mount $storagePath to $(mount | grep /dev/sdb | awk '{print $3}')"
+            printError "You already mount $storagePath to $(mount | grep $storagePath | awk '{print $3}')"
         fi
     fi
 
