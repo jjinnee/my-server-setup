@@ -148,6 +148,9 @@ if [[ $answer == 2 ]]; then
             echo -e "${GREEN}Mounted storages${NC}"
             df -h
             echo
+            echo -e "${GREEN}Result after editing crontab:root${NC}"
+            sudo crontab -l
+            echo
             exit
         elif [[ $wantToUmount == n ]]; then
             printError "You already mount $storagePath to $(mount | grep /dev/sdb | awk '{print $3}')"
