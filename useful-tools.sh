@@ -93,7 +93,7 @@ $(sudo crontab -l)
 @reboot sudo swapon /swapfile
 EOF
         echo
-        echo -e "Crontab:root${NC}"
+        echo -e "${GREEN}Result after editing crontab:root${NC}"
         sudo crontab -l
         echo
         sudo service cron reload
