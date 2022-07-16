@@ -167,7 +167,7 @@ if [[ $answer == 2 ]]; then
 
     cat << EOF | sudo crontab
 $(sudo crontab -l)
-@reboot sudo mount $storagePath
+@reboot sudo mount $storagePath $mountPath
 EOF
 
     echo -e "${GREEN}Mounted storages${NC}"
