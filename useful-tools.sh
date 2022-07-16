@@ -39,12 +39,17 @@ printWarn() {
 printSuccess() {
     echo -e "\n${GREEN}$1${NC}\n"
 }
+greenQuestion() {
+        echo -e "\n${BG_GREEN} $1 ${NC}"
+}
+cyanQuestion() {
+        echo -e "\n${BG_CYAN} $1 ${NC}"
+}
 
 #----------------------
 # select tool
 #----------------------
-echo
-echo -e "${BG_GREEN} Select number ${NC}"
+greenQuestion "Select number"
 echo -e "\t 1) swap memory"
 echo -e "\t 2) mount external storage"
 echo -e "\t 3) openssl private certificate"
@@ -59,8 +64,7 @@ read -p "> Answer [Default : exit] : " answer
 
 ### 1 - swap memory
 if [[ $answer == 1 ]]; then
-    echo
-    echo -e "${BG_CYAN} How much swap memory do you need? ${NC}"
+    cyanQuestion "How much swap memory do you need?"
     echo -e "${RED}You can type${NC} ${GREEN}off${NC} ${RED}when you want to off swap memory${NC}"
     echo
     free -h
@@ -118,8 +122,7 @@ fi
 ### 2 - mount external storage
 
 if [[ $answer == 2 ]]; then
-    echo
-    echo -e "${BG_CYAN} What storage path do you want to mount? ${NC}"
+    cyanQuestion "What storage path do you want to mount?"
     echo && ls /dev
     echo
     read -p "> Answer [Default: exit] : " storageName
@@ -133,8 +136,7 @@ if [[ $answer == 2 ]]; then
 
     mounted=$(mount | grep $storagePath)
     if [[ -n $mounted ]]; then
-        echo
-        echo -e "${BG_GREEN} Do you want to unmount? ${NC}"
+        greenQuestion "Do you want to unmount?"
         echo -e "You already mount ${RED}$storagePath${NC} to ${RED}$(mount | grep /dev/sdb | awk '{print $3}')${NC}"
         echo
         read -p "> Answer (y/n) [Default: n] : " wantToUmount
@@ -157,8 +159,7 @@ if [[ $answer == 2 ]]; then
         fi
     fi
 
-    echo
-    echo -e "${BG_CYAN} Where do you want to mount $storagePath? ${NC}"
+    cyanQuestion "Where do you want to mount $storagePath?"
     echo -e "i.e. ${GREEN}/mount${NC} or ${GREEN}/home/[user]/[dirName]${NC} or ${GREEN}whatever${NC}"
     echo
     read -p "> Answer [Default: exit] : " mountPath
@@ -184,8 +185,7 @@ fi
 ### 3 - openssl private certificate
 
 if [[ $answer == 3 ]]; then
-    echo
-    echo -e "${BG_CYAN} What directory name do you want to make? ${NC}"
+    cyanQuestion "What directory name do you want to make?"
     read -p "> Answer [Default : exit] : " dirName
 
     [ -z $dirName ] && exit
