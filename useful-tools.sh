@@ -50,6 +50,7 @@ cyanQuestion() {
 # select tool
 #----------------------
 greenQuestion "Select number"
+echo -e "\t a) update & upgrade "
 echo -e "\t 1) swap memory"
 echo -e "\t 2) mount external storage"
 echo -e "\t 3) openssl private certificate"
@@ -61,6 +62,21 @@ read -p "> Answer [Default : exit] : " answer
 #----------------------
 # run
 #----------------------
+
+### a - update & upgrade
+
+if [[ $answer == a ]]; then
+    echo -e "\n${GREEN}Upgradable packages ...${NC}"
+    sudo apt list --upgradable
+
+    cyanQuestion "Do you want to update and upgrade?"
+    read -p "> Answer (y/n) [Default : exit] : " isUpdate
+
+    [[ -z $isUpdate || $isUpdate != y ]] && exit
+
+    [[ $isUpdate == y ]] && echo && sudo apt update && sudo apt dist-upgrade
+fi
+
 
 ### 1 - swap memory
 if [[ $answer == 1 ]]; then
@@ -137,7 +153,7 @@ if [[ $answer == 2 ]]; then
     mounted=$(mount | grep $storagePath)
     if [[ -n $mounted ]]; then
         greenQuestion "Do you want to unmount?"
-        echo -e "You already mount ${RED}$storagePath${NC} to ${RED}$(mount | grep /dev/sdb | awk '{print $3}')${NC}"
+        echo -e "You already mount ${RED}$storagePath${NC} to ${RED}$(mount | grep $storagePath | awk '{print $3}')${NC}"
         echo
         read -p "> Answer (y/n) [Default: n] : " wantToUmount
 
@@ -155,7 +171,7 @@ if [[ $answer == 2 ]]; then
             echo
             exit
         elif [[ $wantToUmount == n ]]; then
-            printError "You already mount $storagePath to $(mount | grep $storagePath | awk '{print $3}')"
+            printError "You already mount $storagePath to $(mount | grep /dev/sdb | awk '{print $3}')"
         fi
     fi
 
