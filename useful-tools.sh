@@ -126,7 +126,7 @@ EOF
         echo
         sudo service cron reload
     elif [[ $user_swap == off ]]; then
-        [ $(free -h | sed -n 3p | awk '{print $2}') == 0B ] && printError "You don't have not swap memory"
+        [ $(free -h | sed -n 3p | awk '{print $2}') == 0B ] && printError "You don't have swap memory"
         sudo swapoff /swapfile
         echo
         sudo rm /swapfile
