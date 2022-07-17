@@ -50,10 +50,12 @@ cyanQuestion() {
 # select tool
 #----------------------
 greenQuestion "Select number"
-echo -e "\t a) update & upgrade "
 echo -e "\t 1) swap memory"
 echo -e "\t 2) mount external storage"
 echo -e "\t 3) openssl private certificate"
+echo -e "-----------------------------------"
+echo -e "\t a) update & upgrade "
+echo -e "\t u) update tools"
 echo
 read -p "> Answer [Default : exit] : " answer
 
@@ -77,6 +79,12 @@ if [[ $answer == a ]]; then
     [[ $isUpdate == y ]] && echo && sudo apt update && sudo apt dist-upgrade
 fi
 
+### u - update tools
+
+if [[ $answer == u ]]; then
+    echo -e "\n${BG_CYAN} Updating tools... ${NC}"
+    sudo curl -s -o /usr/local/bin/tools https://raw.githubusercontent.com/jjinnee/my-server-setup/main/useful-tools.sh && sudo chmod +x /usr/local/bin/tools && printSuccess "OK"
+fi
 
 ### 1 - swap memory
 if [[ $answer == 1 ]]; then
