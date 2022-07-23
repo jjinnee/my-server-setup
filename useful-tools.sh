@@ -238,7 +238,7 @@ if [[ $answer == 4 ]]; then
     cyanQuestion "What username do you want to generate?"
     read -p "> Answer [Default : exit] : " nginxUsername
 
-    [ -z $nginxUsername ] && echoExit
+    [ -z $nginxUsername ] && exit
 
     echo
     echo -e "${BG_GREEN} Type password you want ${NC}"
