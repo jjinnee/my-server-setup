@@ -53,6 +53,7 @@ greenQuestion "Select number"
 echo -e "\t 1) swap memory"
 echo -e "\t 2) mount external storage"
 echo -e "\t 3) openssl private certificate"
+echo -e "\t 4) nginx basic auth generate"
 echo -e "-----------------------------------"
 echo -e "\t a) update & upgrade "
 echo -e "\t u) update tools"
@@ -230,3 +231,24 @@ if [[ $answer == 3 ]]; then
     [[ $dhparam =~ 2048|4096 ]] && echo "$(openssl dhparam $dhparam)" > dhparam.pem
         echo
 fi
+
+### 4- nginx basic auth generate
+
+if [[ $answer == 4 ]]; then
+    cyanQuestion "What username do you want to generate?"
+    read -p "> Answer [Default : exit] : " nginxUsername
+
+    [ -z $nginxUsername ] && echoExit
+
+    echo
+    echo -e "${BG_GREEN} Type password you want ${NC}"
+
+    nginxPassword=$(openssl passwd -apr1)
+
+    [ -z $nginxPassword ] && printError "Check your password"
+
+    echo
+    echo -e "Your username:password is ${GREEN}${nginxUsername}:${nginxPassword}${NC}"
+fi
+
+echo
