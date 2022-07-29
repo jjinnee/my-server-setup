@@ -77,7 +77,7 @@ if [[ $answer == a ]]; then
 
     [[ -z $isUpdate || $isUpdate != y ]] && exit
 
-    [[ $isUpdate == y ]] && echo && sudo apt update && sudo apt dist-upgrade
+    [[ $isUpdate == y ]] && echo && sudo apt update && sudo apt dist-upgrade -y
 fi
 
 ### u - update tools
