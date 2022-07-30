@@ -218,12 +218,16 @@ echo -e "\${BG_GREEN} journalctl --vacuum-time=1d \${NC}"
 sudo journalctl --vacuum-time=1d
 
 echo
-echo -e "\${BG_GREEN} apt autoremove \${NC}"
+echo -e "\${BG_GREEN} Delete unused apps \${NC}"
 sudo apt autoremove -y
 
 echo
-echo -e "\${BG_GREEN} apt-get clean \${NC}"
+echo -e "\${BG_GREEN} Delete APT cache \${NC}"
 sudo apt-get clean
+
+echo
+echo -e "\${BG_GREEN} Delete unused kernel files \${NC}"
+sudo apt autoremove --purge
 
 echo
 echo -e "\${BG_GREEN} /var/log/**/*.gz \${NC}"
