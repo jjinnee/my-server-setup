@@ -185,12 +185,14 @@ alias update='sudo apt list --upgradable && echo "------------------------------
 alias mv='mv -v'
 alias rm='rm -v'
 alias cp='cp -v'
+
 alias d='sudo docker'
+
 alias s='sudo'
+
 alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
-alias lxd='sudo lxd'
-alias lxc='sudo lxc'
+
 alias nlog='cat /var/log/nginx/access.log'
 alias nelog='cat /var/log/nginx/error.log'
 EOF
