@@ -97,6 +97,9 @@ if [[ $answer == c ]]; then
             echo -e "${GREEN}Available option${NC}"
             echo -e "\t--write-auto-sub"
             echo -e "\t--embed-subs"
+            echo -e "\t--embed-chapters"
+            echo -e "\t--embed-thumbnail"
+            echo -e "\t--embed-metadata"
             echo -e "\t-F, -f [number]"
             ;;
         2)
