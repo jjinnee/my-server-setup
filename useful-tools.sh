@@ -55,7 +55,8 @@ echo -e "\t 2) mount external storage"
 echo -e "\t 3) openssl private certificate"
 echo -e "\t 4) nginx basic auth generate"
 echo -e "-----------------------------------"
-echo -e "\t a) update & upgrade "
+echo -e "\t a) update & upgrade"
+echo -e "\t c) commands"
 echo -e "\t u) update tools"
 echo
 read -p "> Answer [Default : exit] : " answer
@@ -78,6 +79,35 @@ if [[ $answer == a ]]; then
     [[ -z $isUpdate || $isUpdate != y ]] && exit
 
     [[ $isUpdate == y ]] && echo && sudo apt update && sudo apt dist-upgrade -y
+fi
+
+### c - commands
+
+if [[ $answer == c ]]; then
+    echo -e "${BG_CYAN} Available commands ${NC}"
+    echo -e "\t 1) yt-dlp"
+    echo -e "\t 2) ffmpeg"
+    read -p "> Answer [Default : exit] : " command
+
+    [ -z $command ] && exit
+
+    echo
+    case $command in
+        1)
+            echo -e "${GREEN}Available option${NC}"
+            echo -e "\t--write-auto-sub"
+            echo -e "\t--embed-subs"
+            echo -e "\t-F, -f [number]"
+            ;;
+        2)
+            echo -e "${GREEN}Example${NC}"
+            echo -e '\tffmpeg -i "[m3u8_url]" -codec copy [filename].[ext]'
+            ;;
+        *)
+            exit
+            ;;
+    esac
+
 fi
 
 ### u - update tools
