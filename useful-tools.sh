@@ -95,7 +95,7 @@ if [[ $answer == c ]]; then
     case $command in
         1)
             echo -e "${GREEN}Video + Subtitle${NC}"
-            echo -e "\t-f [number] --sub-lang [string] --embed-subs [URL]
+            echo -e "\t-f [number] --sub-lang [string] --embed-subs [URL]"
             echo
             echo -e "${GREEN}Available option${NC}"
             echo -e "\t--write-auto-sub, --write-sub"
