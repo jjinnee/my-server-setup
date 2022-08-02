@@ -94,13 +94,17 @@ if [[ $answer == c ]]; then
     echo
     case $command in
         1)
+            echo -e "${GREEN}Video + Subtitle${NC}"
+            echo -e "\t-f [number] --sub-lang [string] --embed-subs [URL]
+            echo
             echo -e "${GREEN}Available option${NC}"
-            echo -e "\t--write-auto-sub"
+            echo -e "\t--write-auto-sub, --write-sub"
+            echo -e "\t--sub-lang, --all-sub"
             echo -e "\t--embed-subs"
             echo -e "\t--embed-chapters"
             echo -e "\t--embed-thumbnail"
             echo -e "\t--embed-metadata"
-            echo -e "\t-F, -f [number]"
+            echo -e "\t-F, -f, --list-subs [number]"
             ;;
         2)
             echo -e "${GREEN}Example${NC}"
