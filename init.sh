@@ -181,7 +181,6 @@ echo -e "${BG_GREEN} Adding alias... ${NC}"
 
 cat << EOF | tee -a $HOME/.bashrc
 
-alias update='sudo apt list --upgradable && echo "------------------------------------" && sudo apt update && sudo apt dist-upgrade -y'
 alias mv='mv -v'
 alias rm='rm -v'
 alias cp='cp -v'
