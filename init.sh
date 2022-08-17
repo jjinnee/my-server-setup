@@ -188,6 +188,8 @@ alias cp='cp -v'
 alias d='sudo docker'
 
 alias s='sudo'
+alias ss='sudo service'
+alias sn='sudo nano'
 
 alias ipt='sudo iptables'
 alias ipt6='sudo ip6tables'
