@@ -187,6 +187,8 @@ alias cp='cp -v'
 
 alias d='sudo docker'
 
+alias n='nano'
+
 alias s='sudo'
 alias ss='sudo service'
 alias sn='sudo nano'
