@@ -265,12 +265,19 @@ echo
 echo -e "${BG_GREEN} ADDED THINGS ${NC}"
 echo -e "- Added cron jobs : ${GREEN}Reboot${NC}"
 echo -e "- Added shortcuts"
-echo -e "\t${GREEN}$ update${NC} : sudo apt update && sudo apt dist-upgrade -y"
+echo -e "\t${GREEN}$ mv${NC} : mv -v"
+echo -e "\t${GREEN}$ rm${NC} : rm -v"
+echo -e "\t${GREEN}$ cp${NC} : cp -v"
+echo
 echo -e "\t${GREEN}$ d${NC} : sudo docker"
+echo
+echo -e "\t${GREEN}$ s${NC} : sudo"
+echo -e "\t${GREEN}$ ss${NC} : sudo service"
+echo -e "\t${GREEN}$ sn${NC} : sudo nano"
+echo
 echo -e "\t${GREEN}$ ipt${NC} : sudo iptables"
 echo -e "\t${GREEN}$ ipt6${NC} : sudo ip6tables"
-echo -e "\t${GREEN}$ lxd${NC} : sudo lxd"
-echo -e "\t${GREEN}$ lxc${NC} : sudo lxc"
+echo
 echo -e "\t${GREEN}$ nlog${NC} : cat /var/log/nginx/access.log"
 echo -e "\t${GREEN}$ nelog${NC} : cat /var/log/nginx/error.log"
 
@@ -278,8 +285,6 @@ echo
 echo -e "${BG_GREEN} NEW COMMAND ${NC}"
 echo -e "- clean up unused files"
 echo -e "\t${GREEN}$ opt${NC}"
-echo -e "- Auto package update"
-echo -e "\t${GREEN}$ update${NC}"
 
 echo
 
