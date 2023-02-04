@@ -106,23 +106,41 @@ sudo apt install iptables -y || printError "Failed to install iptables"
 
 printSuccess "iptables is installed"
 
-# echo
+echo
 
-# mkdir -p data || echo -e "${YELLOW}Warn : '$HOME/data' is already exists.${NC}\n"
-# cat << EOF | tee $HOME/data/iptables.sh && echo -e "iptables restore script is located in ${GREEN}$HOME/data/iptables.sh${NC}\n"
-# #!/bin/bash
-# IPT="sudo iptables"
+cat << EOF | tee $HOME/.iptables && echo -e "iptables restore script is located in ${GREEN}$HOME/.iptables${NC}\n"
+#!/bin/bash
+IPT="sudo iptables"
 
-# #\$IPT -N WEB
-# #\$IPT -A WEB -p tcp -m multiport --dport 80,443 -j ACCEPT
-# #\$IPT -A WEB -p tcp --dport 80 -j ACCEPT
-# #\$IPT -A WEB -p tcp --dport 443 -j ACCEPT
-# #\$IPT -A WEB -j RETURN
+### Options
+# -A, --append chain rule-specification
+# -D, --delete chain rule-specification
+# -D, --delete chain rulenum
+# -I, --insert chain [rulenum] rule-specification
+# -R, --replace chain rulenum rule-specification
+# -L, --list [chain]
+# -F, --flush [chain]
+# -N, --new-chain chain
+# -X, --delete-chain [chain]
+# -P, --policy chain target
+# -E, --rename-chain old-chain new-chain
 
-# #\$IPT -I INPUT 1 -j WEB
-# EOF
+### Tables
+# -t, --table table
+# filter(default), nat, mangle, PREROUTING, INPUT, raw
 
-# chmod +x $HOME/data/iptables.sh
+### PARAMETERS
+# -p, --protocol [!] protocol (tcp / udp / icmp / all)
+# -s, --source [!] address[/mask] (IP/24, IP/32, IP)
+# -d, --destination [!] address[/mask] (IP/24, IP/32, IP)
+# -j, --jump target (ACCEPT / DROP / REJECT / LOG / SNAT / DNAT / RETURN)
+# -i, --in-interface [!] name
+# -o, --out-interface [!] name
+
+
+EOF
+
+chmod +x $HOME/.iptables
 
 #-------------------
 # install crontab
@@ -136,7 +154,7 @@ printSuccess "cron is installed"
 ### user cron
 cat << EOF | crontab || printError "Can't create default cron jobs : $USER"
 # m h dom mon dow command
-@reboot sudo iptables -D INPUT -j REJECT --reject-with icmp-host-prohibited
+@reboot bash $HOME/.iptables
 EOF
 
 printSuccess "Default cron jobs are created : $USER"
