@@ -6,7 +6,7 @@
 
 ### My default setup
 
-    curl -s https://raw.githubusercontent.com/jjinnee/my-server-setup/main/init.sh | bash
+    curl -s -O https://raw.githubusercontent.com/jjinnee/my-server-setup/main/init.sh && chmod +x init.sh && bash init.sh
 
 ### Useful-tools
 
