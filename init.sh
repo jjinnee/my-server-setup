@@ -459,11 +459,11 @@ fi
 #------------------------
 bannerColor "TO DO AFTER REBOOT" "red" "*"
 
-if [[ "${result[*]}" =~ 7 ]]; then
+if [[ "${result[*]}" =~ 8 ]]; then
     echo -e "Reset password"
     echo -e "\t${GREEN}$ passwd${NC}"
 fi
-if [[ "${result[*]}" =~ 8 ]]; then
+if [[ "${result[*]}" =~ 7 ]]; then
     echo -e "Install docker"
     echo -e "\t${GREEN}$ sudo sh get-docker.sh${NC}"
 fi
