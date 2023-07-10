@@ -188,7 +188,7 @@ function multiChoice {
 clear
 
 # Usage: multiChoice "header message" resultArray "comma separated options" "comma separated default values"
-multiChoice "Select options:" result "update & upgrade;install nano;install logrotate;install net-tools;No contents;install cron;set timezone to KR;get docker install file;reset password;No contents;create opt" "1;1;1;1;1;1;1;0;0;1;1"
+multiChoice "Select options:" result "update & upgrade;install nano;install logrotate;install net-tools;No contents;install cron;set timezone to KR;get docker install file;reset password;No contents;create opt" "1;1;1;1;0;1;1;0;0;0;1"
 
 count=0
 for item in ${result[@]}; do
