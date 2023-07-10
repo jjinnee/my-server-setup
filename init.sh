@@ -401,14 +401,6 @@ if [[ "${result[*]}" =~ 4 ]]; then
     echo
 fi
 
-if [[ "${result[*]}" =~ 5 ]]; then
-    echo -e "- Added cron jobs"
-    echo -e "${GREEN}${USER}${NC}:\n$(crontab -l)"
-    echo
-    echo -e "${GREEN}root${NC}:\n$(sudo crontab -l)"
-    echo
-fi
-
 if [[ "${result[*]}" =~ 6 ]]; then
     echo -e "- ${GREEN}Time zone${NC} changed to Asia/Seoul"
     echo
