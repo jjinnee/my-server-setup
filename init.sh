@@ -188,7 +188,7 @@ function multiChoice {
 clear
 
 # Usage: multiChoice "header message" resultArray "comma separated options" "comma separated default values"
-multiChoice "Select options:" result "update & upgrade;install nano;install logrotate;install net-tools;install iptables;install cron;set timezone to KR;get docker install file;reset password;add alias;create opt" "1;1;1;1;1;1;1;0;0;1;1"
+multiChoice "Select options:" result "update & upgrade;install nano;install logrotate;install net-tools;No contents;install cron;set timezone to KR;get docker install file;reset password;No contents;create opt" "1;1;1;1;1;1;1;0;0;1;1"
 
 count=0
 for item in ${result[@]}; do
@@ -269,47 +269,12 @@ fi
 # initialize firewall
 #----------------------
 if [[ "${result[*]}" =~ 4 ]]; then
-    echo
-    echo -e "${BG_GREEN} Installing firewall... ${NC}"
-    sudo DEBIAN_FRONTEND=noninteractive apt install iptables -y || printError "Failed to install iptables"
+    echo "No contents"
+    #echo
+    #echo -e "${BG_GREEN} Installing firewall... ${NC}"
+    #sudo DEBIAN_FRONTEND=noninteractive apt install iptables -y || printError "Failed to install iptables"
 
-    printSuccess "iptables is installed"
-
-    echo
-
-    cat << EOF | tee $HOME/.iptables && echo -e "iptables restore script is located in ${GREEN}$HOME/.iptables${NC}\n"
-#!/bin/bash
-IPT="sudo iptables"
-
-### Options
-# -A, --append chain rule-specification
-# -D, --delete chain rule-specification
-# -D, --delete chain rulenum
-# -I, --insert chain [rulenum] rule-specification
-# -R, --replace chain rulenum rule-specification
-# -L, --list [chain]
-# -F, --flush [chain]
-# -N, --new-chain chain
-# -X, --delete-chain [chain]
-# -P, --policy chain target
-# -E, --rename-chain old-chain new-chain
-
-### Tables
-# -t, --table table
-# filter(default), nat, mangle, PREROUTING, INPUT, raw
-
-### PARAMETERS
-# -p, --protocol [!] protocol (tcp / udp / icmp / all)
-# -s, --source [!] address[/mask] (IP/24, IP/32, IP)
-# -d, --destination [!] address[/mask] (IP/24, IP/32, IP)
-# -j, --jump target (ACCEPT / DROP / REJECT / LOG / SNAT / DNAT / RETURN)
-# -i, --in-interface [!] name
-# -o, --out-interface [!] name
-
-
-EOF
-
-    chmod +x $HOME/.iptables
+    #printSuccess "iptables is installed"
 fi
 
 
@@ -322,22 +287,6 @@ if [[ "${result[*]}" =~ 5 ]]; then
     sudo DEBIAN_FRONTEND=noninteractive  apt install cron -y || printError "Failed to install cron"
 
     printSuccess "cron is installed"
-
-    ### user cron
-    cat << EOF | crontab || printError "Can't create default cron jobs : $USER"
-# m h dom mon dow command
-@reboot bash $HOME/.iptables
-EOF
-
-    printSuccess "Default cron jobs are created : $USER"
-
-    ### root cron
-    cat << EOF | sudo crontab || printError "Can't create default cron jobs : root"
-# m h dom mon dow command
-0 5 * * * sudo reboot
-EOF
-
-    printSuccess "Default cron jobs are created : root"
 fi
 
 
@@ -378,31 +327,7 @@ fi
 # alias
 #------------------------
 if [[ "${result[*]}" =~ 9 ]]; then
-    echo
-    echo -e "${BG_GREEN} Adding alias... ${NC}"
-
-    cat << EOF | tee -a $HOME/.bashrc
-
-alias mv='mv -v'
-alias rm='rm -v'
-alias cp='cp -v'
-
-alias d='sudo docker'
-
-alias n='nano'
-
-alias s='sudo'
-alias ss='sudo service'
-alias sn='sudo nano'
-
-alias ipt='sudo iptables'
-alias ipt6='sudo ip6tables'
-
-alias nlog='cat /var/log/nginx/access.log'
-alias nelog='cat /var/log/nginx/error.log'
-EOF
-
-    source $HOME/.bashrc
+    echo "No contents"
 fi
 
 #------------------------
