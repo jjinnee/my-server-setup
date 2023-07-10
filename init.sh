@@ -396,33 +396,8 @@ echo
 
 bannerColor "CHANGED" "yellow" "*"
 
-if [[ "${result[*]}" =~ 4 ]]; then
-    echo -e "- Iptables config file is saved on ${GREEN}${HOME}/.iptables${NC}"
-    echo
-fi
-
 if [[ "${result[*]}" =~ 6 ]]; then
     echo -e "- ${GREEN}Time zone${NC} changed to Asia/Seoul"
-    echo
-fi
-
-if [[ "${result[*]}" =~ 9 ]]; then
-    echo -e "- Added shortcuts"
-    echo -e "\t${GREEN}$ mv${NC} : mv -v"
-    echo -e "\t${GREEN}$ rm${NC} : rm -v"
-    echo -e "\t${GREEN}$ cp${NC} : cp -v"
-    echo
-    echo -e "\t${GREEN}$ d${NC} : sudo docker"
-    echo
-    echo -e "\t${GREEN}$ s${NC} : sudo"
-    echo -e "\t${GREEN}$ ss${NC} : sudo service"
-    echo -e "\t${GREEN}$ sn${NC} : sudo nano"
-    echo
-    echo -e "\t${GREEN}$ ipt${NC} : sudo iptables"
-    echo -e "\t${GREEN}$ ipt6${NC} : sudo ip6tables"
-    echo
-    echo -e "\t${GREEN}$ nlog${NC} : cat /var/log/nginx/access.log"
-    echo -e "\t${GREEN}$ nelog${NC} : cat /var/log/nginx/error.log"
     echo
 fi
 
